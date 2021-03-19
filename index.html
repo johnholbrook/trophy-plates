@@ -1,1 +1,92 @@
-hello!
+<html>
+    <head>
+        <title>Trophy Plate Generator</title>
+        <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
+        <!-- <script type="module" src="./text-to-svg/main.js"></script> -->
+        <!-- <script type="module">
+            import * as TextToSVG from './text-to-svg/src/index.js';
+            window.TextToSVG = TextToSVG;
+        </script> -->
+        <script src="./text-to-svg-browser.js"></script>
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <h1 class="m-3 text-center">VEX Trophy Plate Generator</h1>
+        <div class="row px-3 justify-content-center">
+            <div class="col-12 col-lg-3 col-xl-2 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Template</h3></div>
+                    <div class="card-body">
+                        <select name="template-select" id="template-select" class="form-select">
+                            <option value="vrc">VRC</option>
+                            <option value="viqc">VIQC</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4 col-xl-3 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Images</h3></div>
+                    <div class="card-body">
+                        <h5 class="text-center">Image 1</h5>
+                        <input class="form-control" type="file" id="image1file">
+
+                        <h5 class="text-center mt-3">Image 2</h5>
+                        <input class="form-control" type="file" id="image2file">
+
+                        <p class="text-center small m-3">For best results, use images with a roughly square aspect ratio. SVG preferred; PNG should also work.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-5 col-xl-5 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Event Info</h3></div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Event Line 1</span>
+                            <input type="text" class="form-control" placeholder="2020-2021" id="event-1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Event Line 2</span>
+                            <input type="text" class="form-control" placeholder="West Virginia State Championship" id="event-2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Event Line 3</span>
+                            <input type="text" class="form-control" placeholder="VRC High School" id="event-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-5 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Award Names</h3></div>
+                    <div class="card-body">
+                        <div id="awards-list"></div>
+                        <button class="btn btn-success w-100" onclick="addAward()">+ Add Award</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-5 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Preview</h3></div>
+                    <div class="card-body">
+                        <div id="preview"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-5 my-3">
+                <div class="card">
+                    <div class="card-header"><h3>Generate</h3></div>
+                    <div class="card-body">Body</div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

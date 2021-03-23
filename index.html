@@ -2,38 +2,23 @@
     <head>
         <title>Trophy Plate Generator</title>
         <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
-        <!-- <script type="module" src="./text-to-svg/main.js"></script> -->
-        <!-- <script type="module">
-            import * as TextToSVG from './text-to-svg/src/index.js';
-            window.TextToSVG = TextToSVG;
-        </script> -->
         <script src="./text-to-svg-browser.js"></script>
+        <script src="./jszip.min.js"></script>
         <script src="./index.js"></script>
     </head>
     <body>
         <h1 class="m-3 text-center">VEX Trophy Plate Generator</h1>
         <div class="row px-3 justify-content-center">
-            <div class="col-12 col-lg-3 col-xl-2 my-3">
-                <div class="card">
-                    <div class="card-header"><h3>Template</h3></div>
-                    <div class="card-body">
-                        <select name="template-select" id="template-select" class="form-select">
-                            <option value="vrc">VRC</option>
-                            <option value="viqc">VIQC</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-12 col-lg-4 col-xl-3 my-3">
+            <div class="col-12 col-md-4 col-xxl-3 my-3">
                 <div class="card">
                     <div class="card-header"><h3>Images</h3></div>
                     <div class="card-body">
                         <h5 class="text-center">Image 1</h5>
-                        <input class="form-control" type="file" id="image1file">
+                        <input class="form-control" type="file" id="image1file" accept=".svg,.png,.jpg">
 
                         <h5 class="text-center mt-3">Image 2</h5>
-                        <input class="form-control" type="file" id="image2file">
+                        <input class="form-control" type="file" id="image2file" accept=".svg,.png,.jpg">
 
                         <p class="text-center small m-3">For best results, use images with a roughly square aspect ratio. SVG preferred; PNG should also work.</p>
 
@@ -41,10 +26,18 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-5 col-xl-5 my-3">
+            <div class="col-12 col-md-5 col-xxl-4 my-3">
                 <div class="card">
                     <div class="card-header"><h3>Event Info</h3></div>
                     <div class="card-body">
+                        <div class="btn-group w-100 mb-3" role="group">
+                            <span class="input-group-text">Event Type</span>
+                            <input type="radio" class="btn-check" name="btnradio" id="btn_template_vrc" autocomplete="off" checked>
+                            <label class="btn btn-outline-danger" for="btn_template_vrc">VRC</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btn_template_viqc" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn_template_viqc">VIQC</label>
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Event Line 1</span>
                             <input type="text" class="form-control" placeholder="2020-2021" id="event-1">
@@ -61,29 +54,30 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 col-xl-5 my-3">
+            <div class="col-12 col-md-6 col-xxl-4 my-3">
                 <div class="card">
                     <div class="card-header"><h3>Award Names</h3></div>
                     <div class="card-body">
                         <div id="awards-list"></div>
-                        <button class="btn btn-success w-100" onclick="addAward()">+ Add Award</button>
+                        <button class="btn btn-success w-100" onclick="addAward()">➕ Add Award</button>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 col-xl-5 my-3">
                 <div class="card">
-                    <div class="card-header"><h3>Preview</h3></div>
+                    <div class="card-header">
+                        <span class="h3 mr-4">Preview</span>
+                        <small class="ml-4" id="size-info">Actual size: 4in x 3in</small>
+                        <div class="btn-group float-end" role="group">
+                            <button type="button" class="btn btn-primary btn-sm" id="generate-zip">Download All</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="prev-preview">◀️</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="next-preview">▶️</button>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div id="preview"></div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-5 my-3">
-                <div class="card">
-                    <div class="card-header"><h3>Generate</h3></div>
-                    <div class="card-body">Body</div>
                 </div>
             </div>
 

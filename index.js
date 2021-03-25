@@ -94,8 +94,8 @@ var object_params = {
     },
     viqc : {
         event_1: {x: 525, y:410, size:40, bold: false},
-        event_2: {x: 525, y:480, size:50, bold: true},
-        event_3: {x: 525, y:545, size:40, bold: false},
+        event_2: {x: 525, y:470, size:50, bold: true},
+        event_3: {x: 525, y:525, size:40, bold: false},
         award_1: {x: 525, y:610, size:80, bold: true},
         award_2: {x: 525, y:700, size:80, bold: true},
         award_center: {x: 525, y:655, size:80, bold: true},
@@ -255,44 +255,50 @@ function generateSVG(award_no){
         
         if (is_svg){
             let tmp_i = htmlToElem(image_content);
-            tmp_i.setAttribute("x", `${params.image_center.x-(params.image_center.width/2)}px`);
-            tmp_i.setAttribute("y", `${params.image_center.y-(params.image_center.height/2)}px`);
+            // tmp_i.setAttribute("x", `${params.image_center.x-(params.image_center.width/2)}px`);
+            // tmp_i.setAttribute("y", `${params.image_center.y-(params.image_center.height/2)}px`);
             tmp_i.setAttribute("height", `${params.image_center.height}px`);
             tmp_i.setAttribute("width", `${params.image_center.width}px`);
             tmp_i.setAttribute("preserveAspectRatio", "xMidYMid meet");
-            tmp = tmp.replace("{image_1}", tmp_i.outerHTML);
+            let g_html = `<g transform="matrix(1,0,0,1,${params.image_center.x-(params.image_center.width/2)},${params.image_center.y-(params.image_center.height/2)})">${tmp_i.outerHTML}</g>`
+            tmp = tmp.replace("{image_1}", g_html);
+            // tmp = tmp.replace("{image_1}", tmp_i.outerHTML);
         }
         else{
-            let tmp_i = `<image href="${image_content}" x="${params.image_center.x-(params.image_center.width/2)}px" y="${params.image_center.y-(params.image_center.height/2)}px" height="${params.image_center.height}px" width="${params.image_center.width}px" preserveAspectRatio="xMidYMid meet" />`;
+            let tmp_i = `<image xlink:href="${image_content}" x="${params.image_center.x-(params.image_center.width/2)}px" y="${params.image_center.y-(params.image_center.height/2)}px" height="${params.image_center.height}px" width="${params.image_center.width}px" preserveAspectRatio="xMidYMid meet" />`;
             tmp = tmp.replace("{image_1}", tmp_i);
         }
     }
     else {
         if (options.image_1_is_svg){
             let tmp_i1 = htmlToElem(options.image_1);
-            tmp_i1.setAttribute("x", `${params.image_1.x-(params.image_1.size/2)}px`);
-            tmp_i1.setAttribute("y", `${params.image_1.y-(params.image_1.size/2)}px`);
+            // tmp_i1.setAttribute("x", `${params.image_1.x-(params.image_1.size/2)}px`);
+            // tmp_i1.setAttribute("y", `${params.image_1.y-(params.image_1.size/2)}px`);
             tmp_i1.setAttribute("height", `${params.image_1.size}px`);
             tmp_i1.setAttribute("width", `${params.image_1.size}px`);
             tmp_i1.setAttribute("preserveAspectRatio", "xMidYMid meet");
-            tmp = tmp.replace("{image_1}", tmp_i1.outerHTML);
+            // tmp = tmp.replace("{image_1}", tmp_i1.outerHTML);
+            let g_html = `<g transform="matrix(1,0,0,1,${params.image_1.x-(params.image_1.size/2)},${params.image_1.y-(params.image_1.size/2)})">${tmp_i1.outerHTML}</g>`
+            tmp = tmp.replace("{image_1}", g_html);
         }
         else{
-            let tmp_i1 = `<image href="${options.image_1}" x="${params.image_1.x-(params.image_1.size/2)}px" y="${params.image_1.y-(params.image_1.size/2)}px" height="${params.image_1.size}px" width="${params.image_1.size}px" preserveAspectRatio="xMidYMid meet" />`;
+            let tmp_i1 = `<image xlink:href="${options.image_1}" x="${params.image_1.x-(params.image_1.size/2)}px" y="${params.image_1.y-(params.image_1.size/2)}px" height="${params.image_1.size}px" width="${params.image_1.size}px" preserveAspectRatio="xMidYMid meet" />`;
             tmp = tmp.replace("{image_1}", tmp_i1);
         }
     
         if (options.image_2_is_svg){
             let tmp_i2 = htmlToElem(options.image_2);
-            tmp_i2.setAttribute("x", `${params.image_2.x-(params.image_2.size/2)}px`);
-            tmp_i2.setAttribute("y", `${params.image_2.y-(params.image_2.size/2)}px`);
+            // tmp_i2.setAttribute("x", `${params.image_2.x-(params.image_2.size/2)}px`);
+            // tmp_i2.setAttribute("y", `${params.image_2.y-(params.image_2.size/2)}px`);
             tmp_i2.setAttribute("height", `${params.image_2.size}px`);
             tmp_i2.setAttribute("width", `${params.image_2.size}px`);
             tmp_i2.setAttribute("preserveAspectRatio", "xMidYMid meet");
-            tmp = tmp.replace("{image_2}", tmp_i2.outerHTML);
+            // tmp = tmp.replace("{image_2}", tmp_i2.outerHTML);
+            let g_html = `<g transform="matrix(1,0,0,1,${params.image_2.x-(params.image_2.size/2)},${params.image_2.y-(params.image_2.size/2)})">${tmp_i2.outerHTML}</g>`
+            tmp = tmp.replace("{image_2}", g_html);
         }
         else{
-            let tmp_i2 = `<image href="${options.image_2}" x="${params.image_2.x-(params.image_2.size/2)}px" y="${params.image_2.y-(params.image_2.size/2)}px" height="${params.image_2.size}px" width="${params.image_2.size}px" preserveAspectRatio="xMidYMid meet" />`;
+            let tmp_i2 = `<image xlink:href="${options.image_2}" x="${params.image_2.x-(params.image_2.size/2)}px" y="${params.image_2.y-(params.image_2.size/2)}px" height="${params.image_2.size}px" width="${params.image_2.size}px" preserveAspectRatio="xMidYMid meet" />`;
             tmp = tmp.replace("{image_2}", tmp_i2);
         }
     }

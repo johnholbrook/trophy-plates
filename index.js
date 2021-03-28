@@ -93,9 +93,9 @@ var object_params = {
         image_center: {x: 675, y:250, height:400, width:900}
     },
     viqc : {
-        event_1: {x: 525, y:410, size:40, bold: false},
+        event_1: {x: 525, y:410, size:45, bold: false},
         event_2: {x: 525, y:470, size:50, bold: true},
-        event_3: {x: 525, y:525, size:40, bold: false},
+        event_3: {x: 525, y:530, size:45, bold: false},
         award_1: {x: 525, y:610, size:80, bold: true},
         award_2: {x: 525, y:700, size:80, bold: true},
         award_center: {x: 525, y:655, size:80, bold: true},
